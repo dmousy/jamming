@@ -1,7 +1,9 @@
 import React from 'react';
 import './Track.css';
 
+
 class Track extends React.Component {
+
 
     constructor(props) {
         super(props);
@@ -27,11 +29,16 @@ class Track extends React.Component {
     }
 
     render() {
+        const previewLink = null;
+        
         return (
             <div className="Track">
                 <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artist} | {this.props.track.album}</p>
+                    <br></br>
+                    {previewLink === this.props.track.preview ? <p>(No preview available)</p> : <audio src={this.props.track.preview} type="audio/mp3" controls></audio>}
+                    <br></br>
                 </div>
                 {this.renderAction()}
             </div>
